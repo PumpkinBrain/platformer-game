@@ -1,0 +1,61 @@
+= Requirements Documentation
+:author: Daniel Mendes
+:revnumber: v1.0
+:revdate: 04-08-2024
+:toc: right
+:sectnums:
+
+== Project Overview
+This project is a 2d platformer game, in the likes of old-school Super Mario Brothers or Megaman. 
+The game's engine will be able to load sprites, render animations and simulate basic physics. 
+The target platform will be Linux machines since that's the system it will be
+developed in. However, the source code will be made available which will make it compileable in
+other systems.
+
+== Functional Requirements
+The game should have the following features:
+
+=== The Engine
+- Sprites
+-- The engine should be able to load textures into entities
+- Animations
+-- The engine should be able to play animations on certain conditions
+- Sound
+-- The engine should produce sound when certain things happen
+- Scene switching
+-- The engine should be able to switch scenes, such as a start menu and a gameplay scene
+- Level design
+-- The levels will be loaded from a text file
+
+=== The Gameplay
+- Movement
+-- The player should be able to move left, right and jump
+- Physics
+-- The player should be affected by gravity
+- Attacking
+-- The player will be able to shoot bullets horizontally in the direction they are facing
+- Jump height
+-- The player will be able to adjust the jump height by holding down the jump button.
+- Coin blocks
+-- There will be special tiles that, when hit from below by the player, give the payer a coin
+- Respawning
+-- If the player happens to fall off the platforms, they will respawn at the start of the level
+
+=== Debugging
+For debugging, there should be special keys that will do the following:
+- Switch sprites on/off
+- Switch bounding boxes display on/off
+- Switch grid display on/off
+
+== Non Functional Requirements
+- Asset loading
+-- The game's assets should all be loaded in the start of the game to improve performance
+-- Textures should preferably be on a 64x64 size
+- The Grid
+-- The game's world will be divided into smaller 64x64 sized tiles
+- Usability
+-- Adding levels, assets and new types of entities should be made as easy as possible, preferrably
+with most of the work done through configuration files rather than code
+- Scalability
+-- The scope of this project isn't very large at the moment, the engine code will be centralized in a specific game
+rather than a general-purpose engine
