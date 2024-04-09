@@ -1,10 +1,16 @@
 = Requirements Documentation
 :author: Daniel Mendes
-:revnumber: v0.1
-:revdate: 02-04-2024
+:revnumber: v1.0
+:revdate: 04-08-2024
 :toc: right
 :sectnums:
 
+== Project Overview
+This project is a 2d platformer game, in the likes of old-school Super Mario Brothers or Megaman. 
+The game's engine will be able to load sprites, render animations and simulate basic physics. 
+The target platform will be Linux machines since that's the system it will be
+developed in. However, the source code will be made available which will make it compileable in
+other systems.
 
 == Functional Requirements
 The game should have the following features:
@@ -43,7 +49,13 @@ For debugging, there should be special keys that will do the following:
 
 == Non Functional Requirements
 - Asset loading
--- The game's assets should all be loaded in the start of the game
+-- The game's assets should all be loaded in the start of the game to improve performance
 -- Textures should preferably be on a 64x64 size
 - The Grid
 -- The game's world will be divided into smaller 64x64 sized tiles
+- Usability
+-- Adding levels, assets and new types of entities should be made as easy as possible, preferrably
+with most of the work done through configuration files rather than code
+- Scalability
+-- The scope of this project isn't very large at the moment, the engine code will be centralized in a specific game
+rather than a general-purpose engine
