@@ -1,0 +1,47 @@
+= Architecture Documentation
+:sectnums:
+:toc: right
+
+== Overview
+The game will be a simple 2d platformer game, with the objective of going through levels avoiding traps. This game has the objective of being a learning exercise on software documentation, engineering, unit testing and game development.
+
+== Design
+The game will be divided into many classes, each being responsible for a certain module of the engine. In here, we will be defining each of these modules and their responsability. Later on, we shall go for specific definitions of each class.
+As a guideline, we shall be following the ECS (Entity-Component-System) architecture.
+
+=== Components
+Components are responsible for storing data specific to a certain aspect of the engine, such as a Position component holding data relevant to screen positioning.
+Some common components that will be in the game are:
+- Position: holds relevant data about the object's position on screen.
+- Transform: holds relevant data on the object's movement.
+- Bounding Box: information about the Bounding Box of the object.
+
+=== Entities
+Entities are objects that will store Components. Therefore, it could be said that most of the things you see on screen during gameplay are Entities.
+Common entities that will be in this game are:
+- Player Character: This Entity will be controlled by the player.
+- Tiles: The levels will be built on tiles that have texture and may or may not have a bounding box.
+
+=== Systems
+Systems are functions that carry out the functionality of certain aspects of the game. For instance, a gravity() system would be responsible for applying gravity to the Entities in the game.
+
+=== Graphics
+The graphics will consist of images that will be loaded when the game starts, as to save on performace during gameplay. Graphics will consist of two things:
+- Sprites: Sprites are Entities that have an image or animation associated with them (i.e: Megaman running and jumping, grass in the scenario, etc.)
+- Animations: Animations are a sequence of images that are displayed into an entity. These animations are usually triggered as a consequence of something that happened in the game (i.e: enemies exploding when they die).
+To load graphics into the game, sprite sheets will be used.
+
+== Class definitions
+All of the modules explained above will require some classes that execute certain functionality. In this chapter will be the definition of these classes and how they interact with each other.
+=== Component Classes
+As mentioned in the previous chapter, Components are simply designed to store data relevant to some part of the game, as so, these 
+classes will be what some name as DTOs (Data Transfer Objects). All Components will extend from the Component base class.
+I.E: 
+[source, c++]
+----
+class CPosition : public Component 
+{
+	public:
+		int posX, posY;
+}
+----

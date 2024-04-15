@@ -1,0 +1,6 @@
+= Timeline Documentation
+
+== Planning Phase
+- Week 1: 
+-- Gather requirements
+-- Make design and architecture documentations
