@@ -33,15 +33,64 @@ To load graphics into the game, sprite sheets will be used.
 
 == Class definitions
 All of the modules explained above will require some classes that execute certain functionality. In this chapter will be the definition of these classes and how they interact with each other.
-=== Component Classes
-As mentioned in the previous chapter, Components are simply designed to store data relevant to some part of the game, as so, these 
-classes will be what some name as DTOs (Data Transfer Objects). All Components will extend from the Component base class.
-I.E: 
+
+=== Vec2 Class
+Since this is a 2d game, we will need a lot of 2d vector math, hence the Vec2 class. This class will be responsible for storing
+vector data and basic operations involving vectors. +
+I.E:
 [source, c++]
 ----
-class CPosition : public Component 
+class Vec2
 {
+	double m_x, m_y;
 	public:
-		int posX, posY;
+		Vec2 operator + (const Vec2& rhs);
+		bool operator != (const Vec2& rhs);
+
+		void normalize();
+		double length() const;
 }
 ----
+
+=== Component Classes
+As mentioned in the previous chapter, Components are simply designed to store data relevant to some part of the game, as so, these 
+classes will be what some name as DTOs (Data Transfer Objects). + 
+I.E a Transform component, responsible for the positioning and movement of an entity: 
+[source, c++]
+----
+class CTrasform : public Component 
+{
+	public:
+		Vec2 position, velocity, scale;
+}
+----
+Notice that all Components will extend from the Component base class and will be prefixed with a capital C.
+
+=== Entity Class
+Now, the main responsability of the Entity class is to store Components, and also data relevant to the entitie's state, such as if it's alive or not.
+For less verbosity and pointer management headache, Components will be stored in a tuple.
+[source, c++]
+----
+#include <tuple>
+
+typedef std::tuple
+<
+	CTransform,
+	CSprite,
+	CAnimation,
+> ComponentTuple;
+
+class Entity
+{
+	ComponentTuple m_tuple;
+	bool m_isAlive;
+	public:
+		bool isAlive();
+
+		template<typename T> bool hasComponent() const;
+		template<typename T, typename... TArgs> T& addComponent(TArgs&&... margs);
+}
+----
+
+=== EntityManager Class
+Due to the Entities volatile nature, we need a class responsible for managing them. The EntityManager class will be responsible for creating, destroying and accessing entities.
