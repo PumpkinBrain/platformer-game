@@ -82,8 +82,10 @@ typedef std::tuple
 
 class Entity
 {
+	friend class EntityManager;
 	ComponentTuple m_tuple;
 	bool m_isAlive;
+	Entity();
 	public:
 		bool isAlive();
 
@@ -91,6 +93,9 @@ class Entity
 		template<typename T, typename... TArgs> T& addComponent(TArgs&&... margs);
 }
 ----
+Note that the constructor is private and the EntityManager class is friended, 
+so that only the EntityManager class (which will be further explained) can handle Entity instantiation.
 
 === EntityManager Class
-Due to the Entities volatile nature, we need a class responsible for managing them. The EntityManager class will be responsible for creating, destroying and accessing entities.
+Due to the Entities volatile nature, we need a class responsible for managing them. 
+The EntityManager class will be responsible for creating, destroying and accessing entities.
