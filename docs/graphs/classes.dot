@@ -1,0 +1,93 @@
+digraph classes
+{
+	node [shape=record, labeljust=l]
+
+	Vec2
+	[
+		label=
+		"{
+			Vec2|
+			- x : double\l
+			- y : double\l|
+			+ normalize() : void\l
+			+ length() : double\l\l
+			+ operator + (rhs : Vec2) : Vec2\l
+			+ operator - (rhs : Vec2) : Vec2\l
+			+ operator / (rhs : Vec2) : Vec2\l
+			+ operator * (rhs : Vec2) : Vec2\l
+			+ operator == (rhs : Vec2) : bool\l
+			+ operator != (rhs : Vec2) : bool\l\l
+			+ getX() : double\l
+			+ getY() : double\l
+		}"
+	]
+
+	subgraph clusterComponents
+	{
+		label="Components"
+		CTransform
+		[
+			label=
+			"{
+				CTransform|
+				+ position : Vec2\l
+				+ velocity : Vec2\l
+				+ scale : Vec2\l
+			}"
+		]
+
+		CBoundingBox
+		[
+			label=
+			"{
+				CBoundingBox|
+				+ size : Vec2\l
+			}"
+		]
+
+		CAnimation
+		[
+			label=
+			"{
+				CAnimation|
+				+ file : std::string\l
+				+ offset : double\l
+				+ size : double\l
+				+ speed : int\l
+			}"
+		]
+
+		CGravity
+		[
+			label=
+			"{
+				CGravity|
+				+ velocity : Vec2\l
+			}"
+		]
+
+	}
+
+	Scene
+	[ 
+		label=
+		"{
+			Scene|
+			- EntityMap<Entity> : std::Map<std::String, Entity>
+		}"
+	]
+
+	Game
+	[
+		label=
+		"{
+			Game|
+			- currentScene : Scene\l
+			- sceneList : std::map<Enum, Scene>|\l
+			- sInput() : void\l
+			- switchScene(scene : Enum) : void\l 
+		}"
+	]
+
+	Vec2 -> {CTransform, CBoundingBox, CGravity}
+}
