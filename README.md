@@ -10,5 +10,5 @@ The things I want to practice with this project are:
 - writing documentation
 - writing automated tests
 
-#Current Status:
+# Current Status:
 Currently I'm designing the architecture and learning tools to document my ideas
