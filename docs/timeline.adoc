@@ -1,0 +1,15 @@
+= Timeline Documentation
+
+== Planning Phase
+- Week 1 ~ Week 2: 
+* Gather requirements
+* Make design and architecture documentations
+* Study unit testing
+
+== Development Phase
+- Week 3 ~ Week 4:
+* Design and implement basic test cases for the following:
+** Basic Vec2 class
+** CBoundingBox
+** Entity class
+** Basic EntityManager functionality (create and get entity)

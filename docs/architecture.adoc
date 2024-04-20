@@ -1,0 +1,135 @@
+= Architecture Documentation
+:sectnums:
+:toc: right
+
+== Overview
+The game will be a simple 2d platformer game, with the objective of going through levels avoiding traps. This game has the objective of being a learning exercise on software documentation, engineering, unit testing and game development.
+
+== Design
+The game will be divided into many classes, each being responsible for a certain module of the engine. In here, we will be defining each of these modules and their responsability. Later on, we shall go for specific definitions of each class.
+As a guideline, we shall be following the ECS (Entity-Component-System) architecture.
+
+=== Components
+Components are responsible for storing data specific to a certain aspect of the engine, such as a Position Component holding data relevant to screen positioning.
+Some common components that will be in the game are:
+* Transform: holds relevant data on the object's movement and positioning.
+* Bounding Box: information about the Bounding Box of the object.
+* Animation: holds information relevant to sprites and animation.
+
+=== Entities
+Entities are objects that will store Components. Therefore, it could be said that most of the things you see on screen during gameplay are Entities.
+Common entities that will be in this game are:
+* Player Character: This Entity will be controlled by the player.
+* Tiles: The levels will be built on tiles that have texture and may or may not have a bounding box.
+
+=== Systems
+Systems are functions that carry out the functionality of certain aspects of the game. For instance, a gravity() system would be responsible for applying gravity to the Entities in the game.
+
+=== Graphics
+The graphics will consist of images that will be loaded when the game starts, as to save on performace during gameplay. Graphics will consist of two things:
+* Sprites: Sprites are Entities that have an image or animation associated with them (i.e: Megaman running and jumping, grass in the scenario, etc.)
+* Animations: Animations are a sequence of images that are displayed into an entity. These animations are usually triggered as a consequence of something that happened in the game (i.e: enemies exploding when they die).
+To load graphics into the game, sprite sheets will be used.
+
+=== Scenes
+The game will have various Scenes. A Scene could be defined as a part of the game that has its specific controls, systems and graphics.
+For example: In a classic JRPG we have the world map scene, where the character explores the map. Then we have a combat scene, where
+we see the enemies and combat menus.
+
+== Class definitions
+All of the modules explained above will require some classes that execute certain functionality. In this chapter will be the definition of these classes and how they interact with each other.
+Since we are talking about definitioins, function implementations won't be included unless necessary. In the code snippets, 
+only some examples of functions will be listed. For full class definitions, refer to the diagrams.
+
+=== Vec2 Class
+Since this is a 2d game, we will need a lot of 2d vector math, hence the Vec2 class. This class will be responsible for storing
+vector data and basic operations involving vectors. +
+I.E:
+[source, c++]
+----
+class Vec2
+{
+	double m_x, m_y;
+	public:
+		Vec2 operator + (const Vec2& rhs);
+		bool operator != (const Vec2& rhs);
+
+		void normalize();
+		double length() const;
+}
+----
+
+=== Component Classes
+As mentioned in the previous chapter, Components are simply designed to store data relevant to some part of the game, as so, these 
+classes will be what some name as DTOs (Data Transfer Objects). + 
+I.E a Transform component, responsible for the positioning and movement of an entity: 
+[source, c++]
+----
+#include "Vec2.h"
+
+class CTransform
+{
+	public:
+		Vec2 position, velocity, scale;
+}
+----
+Notice that all Component classes will be prefixed with a capital C.
+
+=== Entity Class
+Now, the main responsability of the Entity class is to store Components, and also data relevant to the entitie's state, such as if it's alive or not.
+For less verbosity and pointer management headache, Components will be stored in a tuple.
+[source, c++]
+----
+#include <tuple>
+#include "Components.h"
+
+enum ENTITY_TYPE
+{
+	PLAYER,
+	BULLET,
+	TILE
+};
+
+typedef std::tuple
+<
+	CTransform,
+	CSprite,
+	CAnimation,
+> ComponentTuple;
+
+class Entity
+{
+	friend class EntityManager;
+
+	ComponentTuple m_tuple;
+	bool m_isAlive = true;
+	const size_t m_id;
+	const ENTITY_TYPE tag;
+	Entity();
+
+	public:
+		bool isAlive();
+		template<typename T> bool hasComponent() const;
+		template<typename T, typename... TArgs> T& addComponent(TArgs&&... margs);
+}
+----
+Note that the constructor is private and the EntityManager class is friended, 
+so that only the EntityManager class (which will be further explained) can handle Entity instantiation.
+
+=== EntityManager Class
+Due to the Entities volatile nature, we need a class responsible for managing them. 
+The EntityManager class will be responsible for creating, destroying and accessing entities.
+[source, c++]
+----
+#include "Entity.h"
+
+class EntityManager
+{
+	std::map<ENTITY_TYPE, std::list<Entity>> m_entityMap;
+}
+----
+
+[graphviz]
+----
+include::graphs/classes.dot[]
+----

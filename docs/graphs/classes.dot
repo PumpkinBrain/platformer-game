@@ -1,0 +1,224 @@
+digraph classes
+{
+	node [shape=record];
+
+	Vec2
+	[
+		label=
+		"{
+			Vec2|
+			- x : double\l
+			- y : double\l|
+			+ normalize() : void\l
+			+ length() : double\l\l
+			+ operator + (Vec2) : Vec2\l
+			+ operator - (Vec2) : Vec2\l
+			+ operator / (Vec2) : Vec2\l
+			+ operator * (Vec2) : Vec2\l
+			+ operator == (Vec2) : bool\l
+			+ operator != (Vec2) : bool\l\l
+			+ getX() : double\l
+			+ getY() : double\l
+		}"
+	];
+
+	subgraph clusterComponents
+	{
+		label="Components"
+		CTransform
+		[
+			label=
+			"{
+				CTransform|
+				+ position : Vec2\l
+				+ velocity : Vec2\l
+				+ scale : Vec2\l
+			}"
+		];
+
+		CBoundingBox
+		[
+			label=
+			"{
+				CBoundingBox|
+				+ size : Vec2\l
+			}"
+		];
+
+		CSprite
+		[
+			label=
+			"{
+				CSprite|
+				+ filePath : std::string\l
+				+ texture : sf::Texture\l
+				+ sprite : sf::Sprite\l
+				+ textureOffset : Vec2\l
+				+ spriteSize : Vec2\l
+			}"
+		]
+
+		CAnimation
+		[
+			label=
+			"{
+				CAnimation|
+				+ loop : bool\l
+				+ animationLength : int\l
+				+ animationSpeed : int\l
+				+ currentFrame : int\l
+			}" 
+		];
+
+		CGravity
+		[
+			label=
+			"{
+				CGravity|
+				+ velocity : Vec2\l
+			}"
+		];
+
+		MENU_ACTION
+		[
+			label=
+			"{
+				enum\n
+				MENU_ACTION|
+				SELECT_LEVEL
+			}"
+		];
+		
+		CMenuAction
+		[
+			label=
+			"{
+				CMenuAction|
+				+ MENU_ACTION
+			}"
+		];
+
+	}
+
+	ENTITY_TAG
+	[
+		label=
+		"{
+			enum\n
+			ENTITY_TAG|
+			PLAYER\l
+			TILE\l
+			BULLET\l
+			MENU_OPTION\l
+		}"
+	];
+
+	Entity
+	[
+		label=
+		"{
+			Entity|
+			- componentTuple : std::tuple(CComponents...)\l
+			- isAlive : bool\l
+			- id : size_t\l
+			- tag : ENTITY_TAG\l|
+			- Entity() : constructor\l
+			+ Template T addComponent() : &T\l
+			+ Template T removeComponent(T) : void\l
+			+ Template T getComponent(Tname) : &T\l
+			+ isAlive() : bool\l
+			+ getTag() :  ENTITY_TAG\l
+		}"
+	];
+
+	EntityManager
+	[
+		label=
+		"{
+			EntityManager|
+			- toRemove : std::list(&Entity)\l
+			- entityList : std::list(Entity)\l
+			- entityMap : std::Map(ENTITY_TYPE, std::List(Entity))|
+			+ addEntity(ENTITY_TYPE) : &Entity\l
+			+ removeEntity(Entity) : void\l
+			+ getEntities() : &std::list(Entity)\l
+			+ getEntities(ENTITY_TAG) : &std::list(Entity)\l
+			+ update() : void\l
+		}"
+	];
+
+	TRIGGER_TYPE
+	[
+		label=
+		"{
+			enum\n
+			TRIGGER_TYPE|
+			LOAD_LEVEL\l
+			MOVEMENT_START\l
+			MOVEMENT_STOP\l
+		}"
+	];
+
+	SceneInterface
+	[
+		label=
+		"{
+			interface\n
+			Scene|
+			+ update() : void\l
+			+ handleTrigger(TRIGGER_TYPE, std::string)\l
+			+ init(std::string) : void\l
+		}"
+	];
+	
+	GameScene
+	[
+		label=
+		"{
+			GameScene :: public Scene|
+			- entityManager : EntityManager\l|
+			- makePositionCenter()\l
+			- spawnPlayer()\l
+			- sGravity() : void\l
+			- sCollision() : void\l
+			- sMovement() : void \l
+			- sRender() : void\l
+		}"
+	];
+
+	MenuScene
+	[
+		label=
+		"{
+			MenuScene :: public Scene|
+			- entityManager : EntityManager\l|
+			- sRender() : void\l
+			- sMovement() : void\l
+		}"
+	];
+	
+	Game
+	[
+		label=
+		"{
+			Game|
+			- currentScene : SCENE_TYPE\l
+			- window : sf::Window\l
+			- sceneMap : std::map(SCENE_TYPE, Scene)\l
+			- imageMap : std::map(std::string, sf::Image)\l
+			- textureMap : std::map(std::string, sf::Texture)|\l
+			- sInput() : void\l
+			- switchScene(SCENE_TYPE) : void\l 
+			- toggleGrid() : void\l
+			- toggleBoundingBox() : void\l
+			+ init() : void\l
+			+ run() : void\l
+		}"
+	];
+
+	Vec2 -> {CSprite, CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction};
+	{CSprite, CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction} -> Entity;
+	Entity -> EntityManager;
+	EntityManager -> SceneInterface -> {GameScene, MenuScene};
+	{GameScene, MenuScene} -> Game;
+}

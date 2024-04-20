@@ -6,6 +6,9 @@ The game will have asset and animation handling
 
 ## Objectives:
 The things I want to practice with this project are:
-- writing documentation
 - planning, implementing and testing complex architectures
-- (not so important rn) writing automated tests
+- writing documentation
+- writing automated tests
+
+#Current Status:
+Currently I'm designing the architecture and learning tools to document my ideas
