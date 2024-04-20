@@ -45,19 +45,30 @@ digraph classes
 			}"
 		];
 
+		CSprite
+		[
+			label=
+			"{
+				CSprite|
+				+ filePath : std::string\l
+				+ texture : sf::Texture\l
+				+ sprite : sf::Sprite\l
+				+ textureOffset : Vec2\l
+				+ spriteSize : Vec2\l
+			}"
+		]
+
 		CAnimation
 		[
 			label=
 			"{
 				CAnimation|
 				+ loop : bool\l
-				+ file : std::string\l
-				+ offset : Vec2\l
-				+ size : Vec2\l
-				+ length : int\l
-				+ speed : int\l
+				+ animationLength : int\l
+				+ animationSpeed : int\l
 				+ currentFrame : int\l
-			}" ];
+			}" 
+		];
 
 		CGravity
 		[
@@ -72,6 +83,7 @@ digraph classes
 		[
 			label=
 			"{
+				enum\n
 				MENU_ACTION|
 				SELECT_LEVEL
 			}"
@@ -124,12 +136,14 @@ digraph classes
 		label=
 		"{
 			EntityManager|
+			- toRemove : std::list(&Entity)\l
 			- entityList : std::list(Entity)\l
 			- entityMap : std::Map(ENTITY_TYPE, std::List(Entity))|
 			+ addEntity(ENTITY_TYPE) : &Entity\l
 			+ removeEntity(Entity) : void\l
 			+ getEntities() : &std::list(Entity)\l
 			+ getEntities(ENTITY_TAG) : &std::list(Entity)\l
+			+ update() : void\l
 		}"
 	];
 
@@ -163,10 +177,11 @@ digraph classes
 		"{
 			GameScene :: public Scene|
 			- entityManager : EntityManager\l|
+			- makePositionCenter()\l
+			- spawnPlayer()\l
 			- sGravity() : void\l
 			- sCollision() : void\l
 			- sMovement() : void \l
-			- sRespawn() : void\l
 			- sRender() : void\l
 		}"
 	];
@@ -188,15 +203,21 @@ digraph classes
 		"{
 			Game|
 			- currentScene : SCENE_TYPE\l
-			- sceneMap : std::map(SCENE_TYPE, Scene)|\l
+			- window : sf::Window\l
+			- sceneMap : std::map(SCENE_TYPE, Scene)\l
+			- imageMap : std::map(std::string, sf::Image)\l
+			- textureMap : std::map(std::string, sf::Texture)|\l
 			- sInput() : void\l
 			- switchScene(SCENE_TYPE) : void\l 
+			- toggleGrid() : void\l
+			- toggleBoundingBox() : void\l
+			+ init() : void\l
 			+ run() : void\l
 		}"
 	];
 
-	Vec2 -> {CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction};
-	{CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction} -> Entity;
+	Vec2 -> {CSprite, CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction};
+	{CSprite, CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction} -> Entity;
 	Entity -> EntityManager;
 	EntityManager -> SceneInterface -> {GameScene, MenuScene};
 	{GameScene, MenuScene} -> Game;
