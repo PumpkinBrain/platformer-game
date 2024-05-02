@@ -1,6 +1,6 @@
 # 2d Platformer Game
 
-In this project I will be making a 2d platformer game using c++ and sfml
+In this project I will be making a 2d platformer game using c++, with the SFML and Google Test libraries
 
 The game will have asset and animation handling
 
@@ -11,4 +11,4 @@ The things I want to practice with this project are:
 - writing automated tests
 
 # Current Status:
-Currently I'm designing the architecture and learning tools to document my ideas
+Currently learning unit testing and designing the test cases

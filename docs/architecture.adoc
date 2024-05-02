@@ -4,6 +4,7 @@
 
 == Overview
 The game will be a simple 2d platformer game, with the objective of going through levels avoiding traps. This game has the objective of being a learning exercise on software documentation, engineering, unit testing and game development.
+For it's development, we shall be using the SFML library for the graphics interface, and the Google Test library for unit testing.
 
 == Design
 The game will be divided into many classes, each being responsible for a certain module of the engine. In here, we will be defining each of these modules and their responsability. Later on, we shall go for specific definitions of each class.
