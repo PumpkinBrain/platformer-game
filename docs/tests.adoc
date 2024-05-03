@@ -1,0 +1,39 @@
+= Tests Documentation
+In this documentation, we will specifi the test cases for the classes in order
+to keep the system concise and avoid bugs in te future.
+
+== Vec2 class
+
+=== double length()
+In order to get the magnitude, or length of the vecotor |A|, we simply
+do pythagoras (h.sqr = a.sqr + b.sqr).
+
+* The magnitue should always be positive, since it's squared of
+real numbers:
+
+----
+x = -2; y = -5.2
+sqrt(-2.sqr + -5.2.sqr) = 4.8
+----
+
+* If one of the elements is 0, then the length is equal the other
+element:
+
+----
+x = 0; y = 15 
+result = 15 
+
+x = 23; y = 0 
+result = 23
+----
+
+* If both the elements are 0, then the length 0:
+
+----
+x = 0; y = 0
+result = 0
+----
+
+=== normalize()
+To normalize a vector, we divide each of its components by it's length
+here's some test cases:
