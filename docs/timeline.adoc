@@ -8,8 +8,8 @@
 
 == Development Phase
 - Week 3 ~ Week 4:
-* Design and implement basic test cases for the following:
-** Basic Vec2 class
+* Design and implement the following:
+** Vec2 class (with tests)
 ** CBoundingBox
-** Entity class
-** Basic EntityManager functionality (create and get entity)
+** Entity class (with tests)
+** Basic EntityManager functionality (create and get entity, with tests)
