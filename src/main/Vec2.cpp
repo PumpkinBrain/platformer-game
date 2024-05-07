@@ -40,24 +40,24 @@ bool Vec2::operator == (Vec2& rhs)
 
 Vec2 Vec2::operator + (Vec2& rhs)
 {
-	Vec2 sum(0,0);
+	Vec2 sum(m_x + rhs.getX(), m_y + rhs.getY());
 	return sum;
 }
 
 Vec2 Vec2::operator - (Vec2& rhs)
 {
-	Vec2 sum(0,0);
+	Vec2 sum(m_x - rhs.getX(), m_y - rhs.getY());
 	return sum;
 }
 
 Vec2 Vec2::operator / (Vec2& rhs)
 {
-	Vec2 sum(0,0);
+	Vec2 sum(m_x / rhs.getX(), m_y / rhs.getY());
 	return sum;
 }
 
 Vec2 Vec2::operator * (Vec2& rhs)
 {
-	Vec2 sum(0,0);
+	Vec2 sum(m_x * rhs.getX(), m_y * rhs.getY());
 	return sum;
 }
