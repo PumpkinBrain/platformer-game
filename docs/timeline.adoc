@@ -11,5 +11,6 @@
 * Design and implement the following:
 ** Vec2 class (with tests)
 ** CBoundingBox
+** CTransform
 ** Entity class (with tests)
 ** Basic EntityManager functionality (create and get entity, with tests)
