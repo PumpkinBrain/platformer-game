@@ -24,6 +24,8 @@ src/test/CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/internal/gtest-port.h
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/internal/gtest-string.h
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/internal/gtest-type-util.h
+ /home/yukiko/projects/platformer-game/src/main/Components.h
+ /home/yukiko/projects/platformer-game/src/main/Entity.h
  /home/yukiko/projects/platformer-game/src/main/Vec2.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h

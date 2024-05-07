@@ -1,10 +1,10 @@
-#ifndef "COMPONENTS_H"
-#define "COMPONENTS_H"
+#ifndef COMPONENTS_H
+#define COMPONENTS_H
 
 class CBoundingBox
 {
 	public:
-		Vec2 size
+		Vec2 size;
 
 		CBoundingBox(Vec2 size) :
 			size(size)		

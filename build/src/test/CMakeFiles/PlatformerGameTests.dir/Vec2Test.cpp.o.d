@@ -224,4 +224,6 @@ src/test/CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o: \
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/gtest-typed-test.h \
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/gtest_pred_impl.h \
  /home/yukiko/projects/platformer-game/lib/googletest/googletest/include/gtest/gtest_prod.h \
- /home/yukiko/projects/platformer-game/src/test/../main/Vec2.h
+ /home/yukiko/projects/platformer-game/src/test/../main/Vec2.h \
+ /home/yukiko/projects/platformer-game/src/test/../main/Entity.h \
+ /home/yukiko/projects/platformer-game/src/test/../main/Components.h
