@@ -5,7 +5,7 @@ to keep the system concise and avoid bugs in te future.
 == Vec2 class
 
 === double length()
-In order to get the magnitude, or length of the vecotor |A|, we simply
+In order to get the magnitude, or length of the vector ||A||, we simply
 do pythagoras (h.sqr = a.sqr + b.sqr).
 
 * The magnitue should always be positive, since it's squared of
@@ -27,7 +27,7 @@ x = 23; y = 0
 result = 23
 ----
 
-* If both the elements are 0, then the length 0:
+* If both the elements are 0, then the length is 0:
 
 ----
 x = 0; y = 0
@@ -37,3 +37,50 @@ result = 0
 === normalize()
 To normalize a vector, we divide each of its components by it's length
 here's some test cases:
+
+* The components of a normalized vector are divided by its length
+
+----
+x = 4; y = -2
+||v|| = 4.472135955 
+result = v/||v|| = (0.89442719099991586, -0.44721359549995793)
+----
+
+* The length of a normalized vector should be equal to one.
+
+----
+x = 47; y = -36
+result = length(normalize) = 1;
+----
+
+=== operator +(Vec2)
+This should sum the components of two vectors and return the resulting vector
+
+----
+v(5,3), w(60,-3)
+result = v+w(65,0)
+----
+
+=== operator -(Vec2)
+This should return the subtraction of two vectors
+
+----
+v(40, 33), w(12,51)
+result = v-w(28, -18)
+----
+
+=== operator /(Vec2)
+This should return the division of two vectors
+
+----
+v(50,30), w(2, 3)
+result = v/w(25,10)
+----
+
+=== operator *(Vec2)
+This should return the multiplication of two vectors
+
+----
+v(2, 3) w(4,7)
+result = v*w(8,21)
+----

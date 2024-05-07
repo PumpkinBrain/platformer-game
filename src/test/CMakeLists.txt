@@ -3,11 +3,7 @@ cmake_minimum_required(VERSION 3.27)
 set(NAME PlatformerGameTests)
 
 set(Sources
-
-)
-
-set(Headers
-
+	Vec2Test.cpp
 )
 
 add_executable(${NAME} ${Sources})
