@@ -123,10 +123,10 @@ digraph classes
 			- id : size_t\l
 			- tag : ENTITY_TAG\l|
 			- Entity() : constructor\l
-			+ Template T addComponent() : T&\l
+			+ Template T addComponent(args : TArgs...) : T&\l
 			+ Template T removeComponent() : void\l
 			+ Template T getComponent() : T&\l
-			+ Template T, ...TArgs hasComponent() : bool
+			+ Template T hasComponent() : bool\l
 			+ isAlive() : bool\l
 			+ getTag() :  ENTITY_TAG\l
 		}"
@@ -137,10 +137,10 @@ digraph classes
 		label=
 		"{
 			EntityManager|
-			- toRemove : std::list(&Entity)\l
+			- toRemove : std::list(Entity&)\l
 			- entityList : std::list(Entity)\l
 			- entityMap : std::Map(ENTITY_TYPE, std::List(Entity))|
-			+ addEntity(ENTITY_TYPE) : &Entity\l
+			+ addEntity(ENTITY_TYPE) : Entity&\l
 			+ removeEntity(Entity) : void\l
 			+ getEntities() : &std::list(Entity)\l
 			+ getEntities(ENTITY_TAG) : &std::list(Entity)\l

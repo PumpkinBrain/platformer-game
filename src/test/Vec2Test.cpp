@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "../main/Vec2.h"
-#include "../main/Entity.h"
 
 TEST(Vec2TestsLength, negativeItemsShouldReturnPositiveResult)
 {

@@ -84,3 +84,9 @@ This should return the multiplication of two vectors
 v(2, 3) w(4,7)
 result = v*w(8,21)
 ----
+
+== Entity class
+Since the Entity class has a private constructor, we shall be testing it's methods through the EntityManager class.
+
+== EntityManager class
+
