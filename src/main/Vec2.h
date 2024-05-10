@@ -5,21 +5,21 @@ class Vec2
 {
 	double m_x, m_y;
 	public:
-		Vec2(double x, double y):
+		Vec2(const double x, const double y):
 			m_x(x), m_y(y)
 		{};
 		~Vec2(){};
-		double length();
-		Vec2 normalize();
+		double length() const;
+		Vec2 normalize() const;
 
-		double getX();
-		double getY();
+		double getX() const;
+		double getY() const;
 
-		bool operator == (Vec2& rhs);
-		Vec2 operator + (Vec2& rhs);
-		Vec2 operator - (Vec2& rhs);
-		Vec2 operator / (Vec2& rhs);
-		Vec2 operator * (Vec2& rhs);
+		bool operator == (const Vec2& rhs) const;
+		Vec2 operator + (const Vec2& rhs) const;
+		Vec2 operator - (const Vec2& rhs) const;
+		Vec2 operator / (const Vec2& rhs) const;
+		Vec2 operator * (const Vec2& rhs) const;
 };
 
 #endif
