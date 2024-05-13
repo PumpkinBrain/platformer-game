@@ -4,6 +4,7 @@ set(NAME PlatformerGameTests)
 
 set(Sources
 	Vec2Test.cpp
+	EntityManagerTest.cpp
 )
 
 add_executable(${NAME} ${Sources})

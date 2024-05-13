@@ -185,6 +185,30 @@ PlatformerGameTests/fast:
 	cd /home/yukiko/projects/platformer-game/build && $(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/build
 .PHONY : PlatformerGameTests/fast
 
+EntityManagerTest.o: EntityManagerTest.cpp.o
+.PHONY : EntityManagerTest.o
+
+# target to build an object file
+EntityManagerTest.cpp.o:
+	cd /home/yukiko/projects/platformer-game/build && $(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o
+.PHONY : EntityManagerTest.cpp.o
+
+EntityManagerTest.i: EntityManagerTest.cpp.i
+.PHONY : EntityManagerTest.i
+
+# target to preprocess a source file
+EntityManagerTest.cpp.i:
+	cd /home/yukiko/projects/platformer-game/build && $(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.i
+.PHONY : EntityManagerTest.cpp.i
+
+EntityManagerTest.s: EntityManagerTest.cpp.s
+.PHONY : EntityManagerTest.s
+
+# target to generate assembly for a file
+EntityManagerTest.cpp.s:
+	cd /home/yukiko/projects/platformer-game/build && $(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.s
+.PHONY : EntityManagerTest.cpp.s
+
 Vec2Test.o: Vec2Test.cpp.o
 .PHONY : Vec2Test.o
 
@@ -223,6 +247,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... PlatformerGameTests"
+	@echo "... EntityManagerTest.o"
+	@echo "... EntityManagerTest.i"
+	@echo "... EntityManagerTest.s"
 	@echo "... Vec2Test.o"
 	@echo "... Vec2Test.i"
 	@echo "... Vec2Test.s"

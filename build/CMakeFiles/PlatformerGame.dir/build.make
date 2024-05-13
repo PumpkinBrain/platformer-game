@@ -83,17 +83,33 @@ CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yukiko/projects/platformer-game/src/main/Vec2.cpp -o CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.s
 
+CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o: CMakeFiles/PlatformerGame.dir/flags.make
+CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o: /home/yukiko/projects/platformer-game/src/main/EntityManager.cpp
+CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o: CMakeFiles/PlatformerGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o -MF CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o.d -o CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o -c /home/yukiko/projects/platformer-game/src/main/EntityManager.cpp
+
+CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yukiko/projects/platformer-game/src/main/EntityManager.cpp > CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.i
+
+CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yukiko/projects/platformer-game/src/main/EntityManager.cpp -o CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.s
+
 # Object files for target PlatformerGame
 PlatformerGame_OBJECTS = \
-"CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.o"
+"CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.o" \
+"CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o"
 
 # External object files for target PlatformerGame
 PlatformerGame_EXTERNAL_OBJECTS =
 
 libPlatformerGame.a: CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.o
+libPlatformerGame.a: CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o
 libPlatformerGame.a: CMakeFiles/PlatformerGame.dir/build.make
 libPlatformerGame.a: CMakeFiles/PlatformerGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libPlatformerGame.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libPlatformerGame.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/PlatformerGame.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PlatformerGame.dir/link.txt --verbose=$(VERBOSE)
 

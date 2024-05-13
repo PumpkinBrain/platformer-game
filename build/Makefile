@@ -249,6 +249,30 @@ PlatformerGameTests/fast:
 	$(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/build
 .PHONY : PlatformerGameTests/fast
 
+src/main/EntityManager.o: src/main/EntityManager.cpp.o
+.PHONY : src/main/EntityManager.o
+
+# target to build an object file
+src/main/EntityManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlatformerGame.dir/build.make CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.o
+.PHONY : src/main/EntityManager.cpp.o
+
+src/main/EntityManager.i: src/main/EntityManager.cpp.i
+.PHONY : src/main/EntityManager.i
+
+# target to preprocess a source file
+src/main/EntityManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlatformerGame.dir/build.make CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.i
+.PHONY : src/main/EntityManager.cpp.i
+
+src/main/EntityManager.s: src/main/EntityManager.cpp.s
+.PHONY : src/main/EntityManager.s
+
+# target to generate assembly for a file
+src/main/EntityManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlatformerGame.dir/build.make CMakeFiles/PlatformerGame.dir/src/main/EntityManager.cpp.s
+.PHONY : src/main/EntityManager.cpp.s
+
 src/main/Vec2.o: src/main/Vec2.cpp.o
 .PHONY : src/main/Vec2.o
 
@@ -292,6 +316,9 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/main/EntityManager.o"
+	@echo "... src/main/EntityManager.i"
+	@echo "... src/main/EntityManager.s"
 	@echo "... src/main/Vec2.o"
 	@echo "... src/main/Vec2.i"
 	@echo "... src/main/Vec2.s"

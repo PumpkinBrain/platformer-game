@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "../../bin/PlatformerGameTests"
   "../../bin/PlatformerGameTests.pdb"
+  "CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o"
+  "CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o.d"
   "CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o"
   "CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o.d"
 )

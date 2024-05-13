@@ -14,10 +14,14 @@ add_subdirectory("lib/googletest")
 
 set(Headers
 	"src/main/Vec2.h"
+	"src/main/Components.h"
+	"src/main/Entity.h"
+	"src/main/EntityManager.h"
 )
 
 set(Sources
 	"src/main/Vec2.cpp"
+	"src/main/EntityManager.cpp"
 )
 
 add_library(${NAME} STATIC ${Sources} ${Headers})

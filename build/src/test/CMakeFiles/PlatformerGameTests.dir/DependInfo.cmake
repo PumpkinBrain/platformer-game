@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/yukiko/projects/platformer-game/src/test/EntityManagerTest.cpp" "src/test/CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o" "gcc" "src/test/CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o.d"
   "/home/yukiko/projects/platformer-game/src/test/Vec2Test.cpp" "src/test/CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o" "gcc" "src/test/CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o.d"
   )
 

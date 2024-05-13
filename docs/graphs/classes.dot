@@ -138,6 +138,8 @@ digraph classes
 		"{
 			EntityManager|
 			- toRemove : std::list(Entity&)\l
+			- toAdd : std::list(Entity&)\l
+			- idCount : size_t\l
 			- entityList : std::list(Entity)\l
 			- entityMap : std::Map(ENTITY_TYPE, std::List(Entity))|
 			+ addEntity(ENTITY_TYPE) : Entity&\l
