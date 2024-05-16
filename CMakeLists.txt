@@ -21,6 +21,7 @@ set(Headers
 
 set(Sources
 	"src/main/Vec2.cpp"
+	"src/main/Entity.cpp"
 	"src/main/EntityManager.cpp"
 )
 

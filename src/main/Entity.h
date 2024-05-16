@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include "Components.h"
-#include "EntityManager.h"
+#include <cstddef>
 #include <tuple>
 
 enum ENTITY_TAG

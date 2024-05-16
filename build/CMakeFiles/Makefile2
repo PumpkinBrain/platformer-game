@@ -152,12 +152,12 @@ src/test/clean: src/test/CMakeFiles/PlatformerGameTests.dir/clean
 CMakeFiles/PlatformerGame.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlatformerGame.dir/build.make CMakeFiles/PlatformerGame.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlatformerGame.dir/build.make CMakeFiles/PlatformerGame.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=1,2,3 "Built target PlatformerGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=1,2,3,4 "Built target PlatformerGame"
 .PHONY : CMakeFiles/PlatformerGame.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PlatformerGame.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PlatformerGame.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 0
 .PHONY : CMakeFiles/PlatformerGame.dir/rule
@@ -178,7 +178,7 @@ CMakeFiles/PlatformerGame.dir/clean:
 lib/googletest/googlemock/CMakeFiles/gmock.dir/all: lib/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=7,8 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=8,9 "Built target gmock"
 .PHONY : lib/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -205,7 +205,7 @@ lib/googletest/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest/googlemo
 lib/googletest/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=9,10 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=10,11 "Built target gmock_main"
 .PHONY : lib/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -231,7 +231,7 @@ lib/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 lib/googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=11,12 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=12,13 "Built target gtest"
 .PHONY : lib/googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -257,7 +257,7 @@ lib/googletest/googletest/CMakeFiles/gtest.dir/clean:
 lib/googletest/googletest/CMakeFiles/gtest_main.dir/all: lib/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=14,15 "Built target gtest_main"
 .PHONY : lib/googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -285,12 +285,12 @@ src/test/CMakeFiles/PlatformerGameTests.dir/all: lib/googletest/googletest/CMake
 src/test/CMakeFiles/PlatformerGameTests.dir/all: lib/googletest/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/PlatformerGameTests.dir/build.make src/test/CMakeFiles/PlatformerGameTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=4,5,6 "Built target PlatformerGameTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/yukiko/projects/platformer-game/build/CMakeFiles --progress-num=5,6,7 "Built target PlatformerGameTests"
 .PHONY : src/test/CMakeFiles/PlatformerGameTests.dir/all
 
 # Build rule for subdir invocation for target.
 src/test/CMakeFiles/PlatformerGameTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/test/CMakeFiles/PlatformerGameTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yukiko/projects/platformer-game/build/CMakeFiles 0
 .PHONY : src/test/CMakeFiles/PlatformerGameTests.dir/rule
