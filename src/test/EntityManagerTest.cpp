@@ -1,13 +1,36 @@
 #include <gtest/gtest.h>
 #include "../main/EntityManager.h"
 
-TEST(EntityManagerTest, updateShouldAddEntitiesToVector)
+struct EntityManagerTest : public ::testing::Test 
 {
-	EntityManager emanager = EntityManager();
-	emanager.addEntity(ENTITY_TAG::TILE);
-	emanager.addEntity(ENTITY_TAG::TILE);
-	emanager.update();
-	ASSERT_EQ(2, emanager.getEntities().size());
+	EntityManager eManager;
+
+	virtual void SetUp() override
+	{
+		eManager = EntityManager();
+	}
+	virtual void TearDown() override
+	{
+
+	}
+};
+
+TEST_F(EntityManagerTest, updateShouldAddEntitiesToVector)
+{
+	eManager.addEntity(ENTITY_TAG::TILE);
+	eManager.addEntity(ENTITY_TAG::TILE);
+	eManager.update();
+	ASSERT_EQ(2, eManager.getEntities().size());
+}
+
+TEST_F(EntityManagerTest, updateShouldRemoveEntitiesFromVector)
+{
+	auto e = eManager.addEntity(ENTITY_TAG::TILE);
+	eManager.addEntity(ENTITY_TAG::TILE);
+	eManager.update();
+	e->destroy();
+	eManager.update();
+	ASSERT_EQ(1, eManager.getEntities().size());
 }
 
 TEST(EntityTest, addComponentToTupleShouldSetValues)
