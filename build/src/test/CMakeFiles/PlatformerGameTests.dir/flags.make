@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /home/yukiko/projects/platformer-game/lib/googletest/googletest/include -isystem /home/yukiko/projects/platformer-game/lib/googletest/googletest
 
-CXX_FLAGS = -std=gnu++14 -fPIE
+CXX_FLAGS = -fPIE
 

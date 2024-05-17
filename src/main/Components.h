@@ -6,12 +6,14 @@
 class CBoundingBox
 {
 	public:
-		Vec2 size;
+		Vec2 size = Vec2(0,0);
+		bool has;
 
 		CBoundingBox(const Vec2 size) :
 			size(size)		
-		{};
-		~CBoundingBox();
+		{}
+		CBoundingBox(){}
+		~CBoundingBox(){}
 };
 
 class CTransform

@@ -15,7 +15,6 @@ enum ENTITY_TAG
 
 typedef std::tuple
 <
-	CTransform,
 	CBoundingBox
 > ComponentTuple;
 
@@ -23,21 +22,20 @@ class Entity
 {
 	friend class EntityManager;
 
-	ComponentTuple m_compTuple();
 	bool m_isAlive = true;
 	const size_t m_id;
 	const ENTITY_TAG m_tag;
+	ComponentTuple m_compTuple;
 
-	Entity(const ENTITY_TAG tag, const size_t id):
-		m_tag(tag), m_id(id)
-	{};
+	Entity(const ENTITY_TAG& tag, const size_t& id);
 
 	public:
-		template <typename T> T& getComponent() const;
-		template <typename T, typename... TArgs>
-			T& addComponent(TArgs&&... mArgs);
-		template <typename T> void  removeComponent();
-		template <typename T> bool hasComponent() const;
+		template<typename T>
+		T& getComponent()
+		{
+			return std::get<T>(m_compTuple);
+		}
+
 		bool isAlive() const;
 		ENTITY_TAG getTag() const;
 		void destroy();
