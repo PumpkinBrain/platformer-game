@@ -23,10 +23,10 @@ TEST(EntityTest, removeComponentFromTupleShouldResetValues)
 {
 	EntityManager eMan = EntityManager();
 	auto e = eMan.addEntity(ENTITY_TAG::TILE);
-	e->addComponent<CBoundingBox>(Vec2(3,4));
-	e->removeComponent<CBoundingBox>();
-	ASSERT_EQ(0, e->getComponent<CBoundingBox>().size.getX());
-	ASSERT_EQ(0, e->getComponent<CBoundingBox>().size.getY());
+	e->addComponent<CTransform>(Vec2(3,4), Vec2(5,6), Vec2(7,9));
+	e->removeComponent<CTransform>();
+	ASSERT_EQ(0, e->getComponent<CTransform>().velocity.getX());
+	ASSERT_EQ(0, e->getComponent<CTransform>().scale.getY());
 }
 
 TEST(EntityTest, checkIfHasComponent)

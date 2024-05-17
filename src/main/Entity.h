@@ -15,7 +15,8 @@ enum ENTITY_TAG
 
 typedef std::tuple
 <
-	CBoundingBox
+	CBoundingBox,
+	CTransform
 > ComponentTuple;
 
 class Entity

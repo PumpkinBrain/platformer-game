@@ -19,14 +19,16 @@ class CBoundingBox
 class CTransform
 {
 	public:
-		Vec2 position;
-		Vec2 velocity;
-		Vec2 scale;
+		Vec2 position = Vec2(0,0);
+		Vec2 velocity = Vec2(0,0);
+		Vec2 scale = Vec2(0,0);
+		bool has = false;
 		
 		CTransform(const Vec2 position, const Vec2 velocity, const Vec2 scale) :
 			position(position), velocity(velocity), scale(scale)
 		{}
-		~CTransform(){};
+		CTransform(){}
+		~CTransform(){}
 };
 
 #endif
