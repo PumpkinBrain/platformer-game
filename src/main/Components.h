@@ -7,7 +7,7 @@ class CBoundingBox
 {
 	public:
 		Vec2 size = Vec2(0,0);
-		bool has;
+		bool has = false;
 
 		CBoundingBox(const Vec2 size) :
 			size(size)		

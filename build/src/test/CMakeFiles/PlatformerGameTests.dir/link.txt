@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/PlatformerGameTests.dir/Vec2Test.cpp.o CMakeFiles/PlatformerGameTests.dir/EntityManagerTest.cpp.o -o ../../bin/PlatformerGameTests  ../../lib/libgtest_main.a ../../libPlatformerGame.a ../../lib/libgtest.a 
