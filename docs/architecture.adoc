@@ -127,8 +127,23 @@ The EntityManager class will be responsible for creating, destroying and accessi
 class EntityManager
 {
 	std::map<ENTITY_TYPE, std::list<Entity>> m_entityMap;
+	std::list<Entity> m_entityList;
+	std::list<Entity&> toRemove;
+
+	public:
+		Entity& addEntity(ENTITY_TYPE);
+		std::list<Entity> getEntities();
+		std::list<Entity> getEntities(ENTITY_TAG);
+		void update();
 }
 ----
+Note that we store entities in both a list, and in a map. This is so
+that we can easily access entities from a specific tag,
+with less processing involved.
+
+Also note that in order to avoid index invalidation, we use the update
+function which will do the proper addition and removal of entities when
+it's safe to do so.
 
 [graphviz]
 ----

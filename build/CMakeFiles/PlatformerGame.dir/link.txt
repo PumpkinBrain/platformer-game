@@ -1,2 +1,0 @@
-/usr/bin/ar qc libPlatformerGame.a CMakeFiles/PlatformerGame.dir/src/main/Vec2.cpp.o
-/usr/bin/ranlib libPlatformerGame.a

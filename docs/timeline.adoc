@@ -12,5 +12,5 @@
 ** Vec2 class (with tests)
 ** CBoundingBox
 ** CTransform
-** Entity class (with tests)
+** Entity class 
 ** Basic EntityManager functionality (create and get entity, with tests)

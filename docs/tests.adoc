@@ -84,3 +84,21 @@ This should return the multiplication of two vectors
 v(2, 3) w(4,7)
 result = v*w(8,21)
 ----
+
+== EntityManager class
+Honestly, I can't quite figure out how to unit test this one, since it's pretty much coupled with other parts of the system
+
+=== update()
+The most important and most complex function of this class. 
+It will be responsible for adding and removing entities when called on each frame, to avoid index invalidation.
+
+----
+entityList = [
+	En0(isAlive = false)
+	En1(isAlive = true)
+	En2(isAlive = false)
+]
+toAdd = [En3, En4]
+
+result: entityList = [En2, En4, En5]
+----
