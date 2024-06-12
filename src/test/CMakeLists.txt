@@ -10,7 +10,7 @@ set(Sources
 add_executable(${NAME} ${Sources})
 target_link_libraries(${NAME} PUBLIC
 	gtest_main
-	PlatformerGame
+	PlatformerGamelib
 )
 
 add_test(

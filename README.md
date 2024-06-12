@@ -11,4 +11,4 @@ The things I want to practice with this project are:
 - writing automated tests
 
 # Current Status:
-Currently learning unit testing and designing the test cases
+Now starting to implement the graphic part with SFML
