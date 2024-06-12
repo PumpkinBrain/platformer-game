@@ -1,17 +1,8 @@
 #include "EntityManager.h"
+#include <algorithm>
 
 std::shared_ptr<Entity> EntityManager::addEntity(const ENTITY_TAG tag)
 {
-	m_entityList.erase
-	(
-		std::remove_if(
-			m_entityList.begin(),
-			m_entityList.end(),
-			[](std::shared_ptr<Entity>& entity){return !entity->isAlive();}
-		),
-		m_entityList.end()
-	);
-
 	auto e = std::shared_ptr<Entity>(new Entity(tag, m_idCount++));
 	m_toAdd.push_back(e);
 	return e;
@@ -29,6 +20,16 @@ EntityVector& EntityManager::getEntities(const ENTITY_TAG tag)
 
 void EntityManager::update()
 {
+	m_entityList.erase
+	(
+		std::remove_if(
+			m_entityList.begin(),
+			m_entityList.end(),
+			[](std::shared_ptr<Entity>& entity){return !entity->isAlive();}
+		),
+		m_entityList.end()
+	);
+
 	if(m_toAdd.size() > 0)
 	{
 		for(auto a : m_toAdd)
