@@ -14,3 +14,7 @@
 ** CTransform
 ** Entity class 
 ** Basic EntityManager functionality (create and get entity, with tests)
+
+- Week 5 ~ 6:
+* Start creating graphics
+** Basic squares representing the bounding boxes of entities
