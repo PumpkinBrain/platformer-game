@@ -10,6 +10,13 @@ For it's development, we shall be using the SFML library for the graphics interf
 The game will be divided into many classes, each being responsible for a certain module of the engine. In here, we will be defining each of these modules and their responsability. Later on, we shall go for specific definitions of each class.
 As a guideline, we shall be following the ECS (Entity-Component-System) architecture.
 
+== The ECS architecture
+In order to make things more flexible and less cluttered than in a object-oriented
+design, which restrics itself in hierarchy trees. In ECS, everything in the game
+(which are called Entities) has a set of attributes that are attached to them
+(Components) so that it's data can be processed and used by the Systems, which
+will be responsible for making everything work.
+
 === Components
 Components are responsible for storing data specific to a certain aspect of the engine, such as a Position Component holding data relevant to screen positioning.
 Some common components that will be in the game are:
@@ -144,6 +151,27 @@ with less processing involved.
 Also note that in order to avoid index invalidation, we use the update
 function which will do the proper addition and removal of entities when
 it's safe to do so.
+
+=== Scene Interface
+Scenes are the different "screens" of a game. For instance, you might
+have a main-menu scene, and then a gameplay scene. Those screens behave and
+look different from each other, with different systems, input mechanisms, assets,
+etc.
+
+So, each scene implementation will be responsible for utilizing it's own 
+EntityManager and handling it's scene-specific systems.
+[source, c++]
+----
+#incude "EntityManager.h"
+
+class EntityInterface
+{
+	EntityManager getEntityManager();
+	void handleInput(char input); // I still haven't decided the data type of inputs
+}
+----
+The inputs will be received from the Game class, which will be responsible for
+the mappings. This will be further explained in the Game class section. 
 
 [graphviz]
 ----
