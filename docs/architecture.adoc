@@ -179,4 +179,6 @@ class SceneInterface
 The inputs will be received from the Game class, which will be responsible for
 the mappings. This will be further explained in the Game class section. 
 
+
+
 image::graphs/graphviz.svg[]
