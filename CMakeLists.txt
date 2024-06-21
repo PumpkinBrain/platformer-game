@@ -14,16 +14,22 @@ enable_testing()
 add_subdirectory("lib/googletest")
 
 set(Headers
-	"src/main/Vec2.h"
 	"src/main/Components.h"
 	"src/main/Entity.h"
 	"src/main/EntityManager.h"
+	"src/main/Game.h"
+	"src/main/GameScene.h"
+	"src/main/SceneInterface.h"
+	"src/main/SceneManager.h"
+	"src/main/Vec2.h"
 )
 
 set(Sources
-	"src/main/Vec2.cpp"
 	"src/main/Entity.cpp"
 	"src/main/EntityManager.cpp"
+	"src/main/GameScene.cpp"
+	"src/main/SceneManager.cpp"
+	"src/main/Vec2.cpp"
 	"src/main/main.cpp"
 )
 add_library(${NAME}lib STATIC ${Sources} ${Headers})

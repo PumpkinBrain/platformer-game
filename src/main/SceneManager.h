@@ -2,12 +2,17 @@
 #define SCENE_MANAGER_H
 
 #include "SceneInterface.h"
+#include "GameScene.h"
 
-public class SceneManager
+class SceneManager
 {
-	std::map<int, Scene> sceneMap;
-	int currentScene;	
+	std::map<int, SceneInterface> m_sceneMap;
+	int m_currentScene;	
 
-}
+	public:
+		SceneInterface getCurrentScene();
+		void changeScene(int scene);
+		void init();
+};
 
 #endif
