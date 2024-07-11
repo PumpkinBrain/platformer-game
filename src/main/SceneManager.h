@@ -6,11 +6,11 @@
 
 class SceneManager
 {
-	std::map<int, SceneInterface> m_sceneMap;
+	std::map<int, std::shared_ptr<SceneInterface>> m_sceneMap;
 	int m_currentScene;	
 
 	public:
-		SceneInterface getCurrentScene();
+		std::shared_ptr<SceneInterface> getCurrentScene();
 		void changeScene(int scene);
 		void init();
 };

@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 
-SceneInterface SceneManager::getCurrentScene()
+std::shared_ptr<SceneInterface> SceneManager::getCurrentScene()
 {
 	return m_sceneMap[m_currentScene];	
 }
@@ -12,7 +12,7 @@ void SceneManager::changeScene(int scene)
 
 void SceneManager::init()
 {
-	GameScene gameScene;
+	std::shared_ptr<GameScene> gameScene = std::make_shared<GameScene>();
 	m_sceneMap[0] = gameScene;
 	m_currentScene = 0;
 }

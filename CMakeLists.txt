@@ -27,6 +27,7 @@ set(Headers
 set(Sources
 	"src/main/Entity.cpp"
 	"src/main/EntityManager.cpp"
+	"src/main/Game.cpp"
 	"src/main/GameScene.cpp"
 	"src/main/SceneManager.cpp"
 	"src/main/Vec2.cpp"
