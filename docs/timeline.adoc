@@ -16,5 +16,6 @@
 ** Basic EntityManager functionality (create and get entity, with tests)
 
 - Week 5 ~ 6:
+* Implement Scenes
 * Start creating graphics
 ** Basic squares representing the bounding boxes of entities

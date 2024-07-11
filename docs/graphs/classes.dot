@@ -21,6 +21,56 @@ digraph classes
 			+ getY() : double\l
 		}"
 	];
+	
+	subgraph clusterEnums
+	{
+	    label="Enums"
+	    MENU_ACTION
+		[
+			label=
+			"{
+				enum\n
+				MENU_ACTION|
+				SELECT_LEVEL
+			}"
+		];
+		
+		ENTITY_TAG
+	    [
+    		label=
+    		"{
+    			enum\n
+    			ENTITY_TAG|
+    			PLAYER\l
+    			TILE\l
+    			BULLET\l
+    			MENU_OPTION\l
+    		}"
+	    ];
+	    
+	    TRIGGER_TYPE
+    	[
+    		label=
+    		"{
+    			enum\n
+    			TRIGGER_TYPE|
+    			LOAD_LEVEL\l
+    			MOVEMENT_START\l
+    			MOVEMENT_STOP\l
+    		}"
+    	];
+    	
+    	SCENE_TYPE
+    	[
+    	    label=
+    	    "{
+    	        enum\n
+    	        SCENE_TYPE|
+    	        GAME_SCENE\l
+    	        MENU_SCENE\l
+            }"
+    	]
+	}
 
 	subgraph clusterComponents
 	{
@@ -79,15 +129,6 @@ digraph classes
 			}"
 		];
 
-		MENU_ACTION
-		[
-			label=
-			"{
-				enum\n
-				MENU_ACTION|
-				SELECT_LEVEL
-			}"
-		];
 		
 		CMenuAction
 		[
@@ -100,18 +141,7 @@ digraph classes
 
 	}
 
-	ENTITY_TAG
-	[
-		label=
-		"{
-			enum\n
-			ENTITY_TAG|
-			PLAYER\l
-			TILE\l
-			BULLET\l
-			MENU_OPTION\l
-		}"
-	];
+	
 
 	Entity
 	[
@@ -150,18 +180,7 @@ digraph classes
 		}"
 	];
 
-	TRIGGER_TYPE
-	[
-		label=
-		"{
-			enum\n
-			TRIGGER_TYPE|
-			LOAD_LEVEL\l
-			MOVEMENT_START\l
-			MOVEMENT_STOP\l
-		}"
-	];
-
+	
 	SceneInterface
 	[
 		label=
@@ -169,7 +188,7 @@ digraph classes
 			interface\n
 			Scene|
 			+ update() : void\l
-			+ handleTrigger(TRIGGER_TYPE, std::string)\l
+			+ handleTrigger(char)\l
 			+ init(std::string) : void\l
 		}"
 	];
@@ -179,7 +198,7 @@ digraph classes
 		label=
 		"{
 			GameScene :: public Scene|
-			- entityManager : EntityManager\l|
+			- entityManager : EntityManager\l
 			- makePositionCenter()\l
 			- spawnPlayer()\l
 			- sGravity() : void\l
@@ -194,26 +213,36 @@ digraph classes
 		label=
 		"{
 			MenuScene :: public Scene|
-			- entityManager : EntityManager\l|
+			- entityManager : EntityManager\l
 			- sRender() : void\l
 			- sMovement() : void\l
 		}"
 	];
+	
+	SceneManager
+	[
+	    label=
+	    "{
+	        SceneManager|
+	        - sceneMap: std::map(SCENE_TYPE, Scene)\l
+	        - currentScene : Scene\l|
+	        + getCurrentScene() : Scene\l
+	        + changeScene(SCENE_TYPE) : void\l
+	    }"
+	]
 	
 	Game
 	[
 		label=
 		"{
 			Game|
-			- currentScene : SCENE_TYPE\l
+			- sceneManager: SceneManager\l
 			- window : sf::Window\l
-			- sceneMap : std::map(SCENE_TYPE, Scene)\l
 			- imageMap : std::map(std::string, sf::Image)\l
-			- textureMap : std::map(std::string, sf::Texture)|\l
+			- textureMap : std::map(std::string, sf::Texture)\l
 			- sInput() : void\l
-			- switchScene(SCENE_TYPE) : void\l 
 			- toggleGrid() : void\l
-			- toggleBoundingBox() : void\l
+			- toggleBoundingBox() : void\l|
 			+ init() : void\l
 			+ run() : void\l
 		}"
@@ -223,5 +252,5 @@ digraph classes
 	{CSprite, CAnimation, CBoundingBox, CGravity, CTransform, CMenuAction} -> Entity;
 	Entity -> EntityManager;
 	EntityManager -> SceneInterface -> {GameScene, MenuScene};
-	{GameScene, MenuScene} -> Game;
+	{GameScene, MenuScene} -> SceneManager -> Game;
 }

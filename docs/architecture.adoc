@@ -20,6 +20,7 @@ will be responsible for making everything work.
 === Components
 Components are responsible for storing data specific to a certain aspect of the engine, such as a Position Component holding data relevant to screen positioning.
 Some common components that will be in the game are:
+
 * Transform: holds relevant data on the object's movement and positioning.
 * Bounding Box: information about the Bounding Box of the object.
 * Animation: holds information relevant to sprites and animation.
@@ -27,6 +28,7 @@ Some common components that will be in the game are:
 === Entities
 Entities are objects that will store Components. Therefore, it could be said that most of the things you see on screen during gameplay are Entities.
 Common entities that will be in this game are:
+
 * Player Character: This Entity will be controlled by the player.
 * Tiles: The levels will be built on tiles that have texture and may or may not have a bounding box.
 
@@ -35,6 +37,7 @@ Systems are functions that carry out the functionality of certain aspects of the
 
 === Graphics
 The graphics will consist of images that will be loaded when the game starts, as to save on performace during gameplay. Graphics will consist of two things:
+
 * Sprites: Sprites are Entities that have an image or animation associated with them (i.e: Megaman running and jumping, grass in the scenario, etc.)
 * Animations: Animations are a sequence of images that are displayed into an entity. These animations are usually triggered as a consequence of something that happened in the game (i.e: enemies exploding when they die).
 To load graphics into the game, sprite sheets will be used.
@@ -162,18 +165,20 @@ So, each scene implementation will be responsible for utilizing it's own
 EntityManager and handling it's scene-specific systems.
 [source, c++]
 ----
-#incude "EntityManager.h"
+#include "EntityManager.h"
 
-class EntityInterface
+class SceneInterface
 {
-	EntityManager getEntityManager();
-	void handleInput(char input); // I still haven't decided the data type of inputs
+	public:
+		EntityManager getEntityManager();
+		void handleTrigger(char input); // I still haven't decided the data type of inputs
+		void init(std::string);
+		void update();
 }
 ----
 The inputs will be received from the Game class, which will be responsible for
 the mappings. This will be further explained in the Game class section. 
 
-[graphviz]
-----
-include::graphs/classes.dot[]
-----
+
+
+image::graphs/graphviz.svg[]
