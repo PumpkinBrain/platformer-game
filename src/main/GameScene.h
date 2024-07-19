@@ -8,7 +8,7 @@ class GameScene : public SceneInterface
 	EntityManager m_entityManager;
 
 	public:
-		virtual void init(std::string file);
+		virtual void init(const std::string& file);
 		virtual EntityManager getEntityManager();			
 		virtual void handleTrigger(char input);
 		virtual void update();
