@@ -9,13 +9,28 @@ void Game::init()
 
 void Game::render()
 {
-	auto e = m_sceneManager.getCurrentScene()->getEntityManager().getEntities()[0];
-	Vec2 pos = e->getComponent<CTransform>().position;
-	sf::CircleShape circ(50);
-	circ.setFillColor(sf::Color(0,0,255));
-	circ.setPosition(pos.getX(), pos.getY());
-	m_window.draw(circ);
+	EntityVector entityVec =
+		m_sceneManager.getCurrentScene()->getEntityManager().getEntities();
+	for(int i=0; i<entityVec.size(); i++)
+	{
+		auto e = entityVec[i];
+		Vec2 pos = e->getComponent<CTransform>().position;
+		sf::CircleShape circ(50);
+		circ.setFillColor(sf::Color(0,0,255));
+		circ.setPosition(pos.getX(), pos.getY());
+		m_window.draw(circ);
 
+		if(e->hasComponent<CBoundingBox>())
+		{
+			Vec2 bBox = e->getComponent<CBoundingBox>().size;
+			sf::RectangleShape rec(sf::Vector2f(bBox.getX(), bBox.getY()));
+			rec.setPosition(pos.getX(), pos.getY());
+			rec.setFillColor(sf::Color::Transparent);
+			rec.setOutlineThickness(5);
+			rec.setOutlineColor(sf::Color::Red);
+			m_window.draw(rec);
+		}
+	}
 }
 
 void Game::run()
@@ -30,7 +45,6 @@ void Game::run()
 				m_window.close();
 			}
 		}
-
 		m_window.clear(sf::Color::Black);
 
 		//update scene
@@ -40,5 +54,6 @@ void Game::run()
 		//render
 		render();
 		m_window.display();
+
 	}
 }
