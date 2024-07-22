@@ -33,23 +33,43 @@ void Game::render()
 	}
 }
 
+void Game::input()
+{
+	sf::Event event;
+	while(m_window.pollEvent(event))
+	{
+		if(event.type == sf::Event::Closed)
+		{
+			m_window.close();
+		}
+
+		if(event.type == sf::Event::KeyPressed)
+		{
+			m_sceneManager.getCurrentScene()->handleTrigger(
+				event.key.code,
+				INPUT_TYPE::KEY_PRESS
+			);
+		}
+
+		if(event.type == sf::Event::KeyReleased)
+		{
+			m_sceneManager.getCurrentScene()->handleTrigger(
+				event.key.code,
+				INPUT_TYPE::KEY_RELEASE
+			);
+		}
+	}
+}
 void Game::run()
 {
 	while(m_window.isOpen())
 	{
-		sf::Event event;
-		while(m_window.pollEvent(event))
-		{
-			if(event.type == sf::Event::Closed)
-			{
-				m_window.close();
-			}
-		}
 		m_window.clear(sf::Color::Black);
 
 		//update scene
 		m_sceneManager.getCurrentScene()->update();
 		//input
+		input();
 		//scene-specific systems
 		//render
 		render();
