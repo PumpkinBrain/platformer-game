@@ -3,6 +3,7 @@
 
 #include "SceneInterface.h"
 
+
 class GameScene : public SceneInterface
 {
 	EntityManager m_entityManager;
@@ -10,7 +11,10 @@ class GameScene : public SceneInterface
 	public:
 		virtual void init(const std::string& file);
 		virtual EntityManager getEntityManager();			
-		virtual void handleTrigger(char input);
+		virtual void handleTrigger(
+			sf::Keyboard::Key&,
+			INPUT_TYPE
+		);
 		virtual void update();
 };
 
