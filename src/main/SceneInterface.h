@@ -8,7 +8,7 @@ class SceneInterface
 	public:
 		virtual EntityManager getEntityManager() = 0;
 		virtual void handleTrigger(char input) = 0;
-		virtual void init(std::string file) = 0;
+		virtual void init(const std::string& file) = 0;
 		virtual void update() = 0;
 };
 

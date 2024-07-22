@@ -179,6 +179,13 @@ class SceneInterface
 The inputs will be received from the Game class, which will be responsible for
 the mappings. This will be further explained in the Game class section. 
 
+=== Scene Manager class
+The Scene Manager will be responsible for initalizing, starting, updating and
+switching through the scenes in the game.
 
+=== Game class
+The game class will be the highest-level class in this engine. It will be responsible
+for rendering a Scene's entities and passing inputs to it, as well as holding
+control over the application window and it's metadata.
 
 image::graphs/graphviz.svg[]
