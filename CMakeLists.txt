@@ -19,6 +19,7 @@ set(Headers
 	"src/main/EntityManager.h"
 	"src/main/Game.h"
 	"src/main/GameScene.h"
+	"src/main/MainMenuScene.h"
 	"src/main/SceneInterface.h"
 	"src/main/SceneManager.h"
 	"src/main/Vec2.h"
@@ -29,6 +30,7 @@ set(Sources
 	"src/main/EntityManager.cpp"
 	"src/main/Game.cpp"
 	"src/main/GameScene.cpp"
+	"src/main/MainMenuScene.cpp"
 	"src/main/SceneManager.cpp"
 	"src/main/Vec2.cpp"
 	"src/main/main.cpp"
@@ -43,6 +45,11 @@ FetchContent_Declare(SFML
 	GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
+add_custom_target(copy_assets
+	COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/assets ${PROJECT_BINARY_DIR}/assets
+)
+
 add_executable(${NAME} ${Sources} ${Headers})
+add_dependencies(${NAME} copy_assets)
 target_link_libraries(${NAME} PRIVATE sfml-graphics)
 target_compile_features(${NAME} PRIVATE cxx_std_17)
