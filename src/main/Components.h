@@ -2,6 +2,7 @@
 #define COMPONENTS_H
 
 #include "Vec2.h"
+#include <string>
 
 class CBoundingBox
 {
@@ -29,6 +30,18 @@ class CTransform
 		{}
 		CTransform(){}
 		~CTransform(){}
+};
+
+class CText
+{
+	public:
+		std::string text = "";
+		bool has = false;
+		CText(std::string text)
+			: text(text)
+		{}
+		CText(){}
+		~CText(){}
 };
 
 #endif

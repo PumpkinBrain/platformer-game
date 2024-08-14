@@ -7,6 +7,7 @@ class Game
 {
 	SceneManager m_sceneManager;	
 	sf::RenderWindow m_window;	
+	sf::Font m_font;
 
 	public:
 		void init();

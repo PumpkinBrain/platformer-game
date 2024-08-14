@@ -3,6 +3,7 @@
 
 #include "SceneInterface.h"
 #include "GameScene.h"
+#include "MainMenuScene.h"
 
 class SceneManager
 {
